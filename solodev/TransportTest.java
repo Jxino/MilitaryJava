@@ -17,7 +17,7 @@ abstract class Transport implements Takeable {
     }
 
     public String toString() {
-        return this.transId + " " + this.passengerCount + " " + this.revenue + "$";
+        return String.format("%s has %d passengers and %d$", transId, passengerCount, revenue);
     }
 }
 
@@ -56,7 +56,7 @@ class Passenger {
         this.assets = assets;
     }
 
-    public <T extends Takeable> void takeTransport(T transport) {
+    public <T extends Transport> void takeTransport(T transport) {
         transport.take();
         this.assets -= transport.getRevenue();
     }
