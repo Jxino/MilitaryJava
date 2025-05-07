@@ -5,6 +5,48 @@ interface Takeable {
     int getRevenue();
 }
 
+abstract class Transport implements Takeable {
+    String transId;
+    int passengerCount;
+    int revenue;
+    
+    public abstract void take();
+
+    public int getRevenue() {
+        return revenue;
+    }
+
+    public String toString() {
+        return this.transId + " " + this.passengerCount + " " + this.revenue + "$";
+    }
+}
+
+class Bus extends Transport {
+    static final int fare = 400;
+    
+    Bus(String busid) {
+        this.transId = busid;
+    }
+
+    public void take() {
+        revenue += fare;
+        passengerCount++;
+    }
+}
+
+class Metro extends Transport {
+    static final int fare = 50;
+
+    Metro(String metroId) {
+        this.transId = metroId;
+    }
+    
+    public void take() {
+        revenue += fare;
+        passengerCount++;
+    }
+}
+
 class Passenger {
     String name;
     int assets;
@@ -21,54 +63,6 @@ class Passenger {
 
     public String toString() {
         return this.name + " : " + this.assets + "$";
-    }
-}
-
-class Bus implements Takeable {
-    String busId;
-    int passengerCount;
-    int revenue;
-    static final int fare = 400;
-
-    Bus(String busId) {
-        this.busId = busId;
-    }
-    
-    public void take() {
-        revenue += fare;
-        passengerCount++;
-    }
-
-    public int getRevenue() {
-        return revenue;
-    }
-
-    public String toString() {
-        return this.busId + " " + this.passengerCount + " " + this.revenue + "$";
-    }
-}
-
-class Metro implements Takeable {
-    String metroId;
-    int passengerCount;
-    int revenue;
-    static final int fare = 50;
-
-    Metro(String metroId) {
-        this.metroId = metroId;
-    }
-    
-    public void take() {
-        revenue += fare;
-        passengerCount++;
-    }
-
-    public int getRevenue() {
-        return revenue;
-    }
-
-    public String toString() {
-        return this.metroId + " " + this.passengerCount + " " + this.revenue + "$";
     }
 }
 
