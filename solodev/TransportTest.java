@@ -1,5 +1,10 @@
 package solodev;
 
+interface Takeable {
+    void take();
+    int getRevenue();
+}
+
 class Passenger {
     String name;
     int assets;
@@ -9,8 +14,9 @@ class Passenger {
         this.assets = assets;
     }
 
-    public <T> void takeBus(T transport) {
-
+    public <T extends Takeable> void takeTransport(T transport) {
+        transport.take();
+        this.assets -= transport.getRevenue();
     }
 
     public String toString() {
@@ -18,7 +24,7 @@ class Passenger {
     }
 }
 
-class Bus {
+class Bus implements Takeable {
     String busId;
     int passengerCount;
     int revenue;
@@ -33,12 +39,16 @@ class Bus {
         passengerCount++;
     }
 
+    public int getRevenue() {
+        return revenue;
+    }
+
     public String toString() {
         return this.busId + " " + this.passengerCount + " " + this.revenue + "$";
     }
 }
 
-class Metro {
+class Metro implements Takeable {
     String metroId;
     int passengerCount;
     int revenue;
@@ -53,11 +63,26 @@ class Metro {
         passengerCount++;
     }
 
+    public int getRevenue() {
+        return revenue;
+    }
+
     public String toString() {
         return this.metroId + " " + this.passengerCount + " " + this.revenue + "$";
     }
 }
 
-public class Transport {
-    
+public class TransportTest {
+    public static void main(String[] args) {
+        Passenger p1 = new Passenger("Chales", 20000);
+        Bus b1 = new Bus("Montreux");
+        Metro m1 = new Metro("London");
+
+        p1.takeTransport(b1);
+        p1.takeTransport(m1);
+
+        System.out.println(p1);
+        System.out.println(b1);
+        System.out.println(m1);
+    }
 }
