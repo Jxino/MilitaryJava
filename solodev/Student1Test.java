@@ -8,8 +8,7 @@ class Student1 {
     public String address;
 
     public Student1() {
-        serialNum++;
-        studentID = serialNum;
+        studentID = serialNum++;
     }
 
     public String getStudentName() {
