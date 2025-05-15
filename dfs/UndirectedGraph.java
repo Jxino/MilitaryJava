@@ -12,7 +12,7 @@ class UndirectedGraph {
 
     public static void dfs(int vertex) {
         visited[vertex] = true;
-        for (int i = 0; i < graph[vertex].length; i++) {
+        for (int i = 0; i < graph[vertex].length ; i++) {
             System.out.println(String.format("vertex: %d | neighboring vertex: %d checked", vertex, i));
             if (graph[vertex][i] == 1 && !visited[i]) {
                 dfs(i);
