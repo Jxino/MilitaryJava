@@ -1,11 +1,11 @@
 package dfs;
 
-class DirectedGraph {
+class UndirectedGraph {
     static int[][] graph = {
         {0, 1, 1, 0}, 
         {1, 0, 0, 1}, 
-        {1, 1, 1, 1}, 
-        {0, 0, 0, 0}
+        {1, 0, 0, 1}, 
+        {0, 1, 1, 0}
     };
 
     static boolean[] visited = new boolean[4];
@@ -20,9 +20,29 @@ class DirectedGraph {
         }
     }
 
+    public static boolean allVisited() {
+        for (boolean v : visited) {
+            if (!v) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static void startDfs() {
+        for (int i = 0; i < visited.length; i++) {
+            if (!visited[i]) {
+                dfs(i);
+                if (allVisited()) {
+                    break;
+                }
+            }
+        }
+    }
+
     public static void main(String[] args) {
         System.out.println("Dfs start");
-        dfs(0);
+        startDfs();
         System.out.println("Dfs end");
     }
 }
