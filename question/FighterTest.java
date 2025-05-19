@@ -45,8 +45,8 @@ class Fighter {
 
 class Rosters {
     private static Rosters instance = new Rosters();
-    private Fighter[] roster1;
-    private Fighter[] roster2;
+    private Fighter[] originalRoster;
+    private Fighter[] copiedRoster;
 
     private Rosters() {}
 
@@ -54,28 +54,28 @@ class Rosters {
         return instance;
     }
 
-    public void setRoster(Fighter[] roster1, Fighter[] roster2) {
-        this.roster1 = roster1;
-        this.roster2 = roster2;
+    public void setRoster(Fighter[] originalRoster, Fighter[] copiedRoster) {
+        this.originalRoster = originalRoster;
+        this.copiedRoster = copiedRoster;
     }
 
-    public Fighter[] getRoster1() {
-        return this.roster1;
+    public Fighter[] getOriginalRoster() {
+        return this.originalRoster;
     }
 
     public Fighter[] getRoster2() {
-        return this.roster2;
+        return this.copiedRoster;
     }
 
-    public void printRoster1() {
-        for (Fighter fighter : this.roster1) {
+    public void printOriginalRoster() {
+        for (Fighter fighter : this.originalRoster) {
             System.out.println(fighter);
         }
         System.out.println("\n");
     }
 
-    public void printRoster2() {
-        for (Fighter fighter : this.roster2) {
+    public void printCopiedRoster() {
+        for (Fighter fighter : this.copiedRoster) {
             System.out.println(fighter);
         }
         System.out.println("\n");
@@ -108,13 +108,13 @@ public class FighterTest {
 
         rosters.setRoster(roster1, roster2);
 
-        rosters.printRoster1();
-        rosters.printRoster2();
+        rosters.printOriginalRoster();
+        rosters.printCopiedRoster();
 
-        rosters.getRoster1()[0] = new Fighter("Cornor McGregor", "Ireland", "#c");
+        rosters.getOriginalRoster()[0] = new Fighter("Cornor McGregor", "Ireland", "#c");
         // roster1[0] = new Fighter("Cornor McGregor", "Ireland", "#c");
 
-        rosters.printRoster1();
-        rosters.printRoster2();        
+        rosters.printOriginalRoster();
+        rosters.printCopiedRoster();        
     }
 }
