@@ -69,14 +69,14 @@ class Rosters {
 
     public void printRoster1() {
         for (Fighter fighter : this.roster1) {
-            System.out.println(fighter.toString());
+            System.out.println(fighter);
         }
         System.out.println("\n");
     }
 
     public void printRoster2() {
         for (Fighter fighter : this.roster2) {
-            System.out.println(fighter.toString());
+            System.out.println(fighter);
         }
         System.out.println("\n");
     }
