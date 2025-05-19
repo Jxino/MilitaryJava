@@ -84,8 +84,9 @@ class Rosters {
 
 public class FighterTest {
     public static void main(String[] args) {
-        Fighter[] roster1 = new Fighter[6];
-        Fighter[] roster2 = new Fighter[6];
+        final int ROSTER_SIZE = 6;
+        Fighter[] roster1 = new Fighter[ROSTER_SIZE];
+        Fighter[] roster2 = new Fighter[ROSTER_SIZE];
         Rosters rosters = Rosters.getInstance();
 
         roster1[0] = new Fighter("Islam Makhachev", "Russia", "#c");
