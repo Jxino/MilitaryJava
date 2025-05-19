@@ -5,13 +5,19 @@ class Fighter {
     private String nationality;
     private String rank;
 
+    public Fighter() {}
+    
     public Fighter(String name, String nationality, String rank) {
         this.name = name;
         this.nationality = nationality;
         this.rank = rank;
     }
 
-    public Fighter() {}
+    public Fighter(Fighter original) {
+        this.name = original.name;
+        this.nationality = original.nationality;
+        this.rank = original.rank;
+    }
 
     public String getName() {
         return this.name;
@@ -85,34 +91,34 @@ class Rosters {
 public class FighterTest {
     public static void main(String[] args) {
         final int ROSTER_SIZE = 6;
-        Fighter[] roster1 = new Fighter[ROSTER_SIZE];
-        Fighter[] roster2 = new Fighter[ROSTER_SIZE];
+        Fighter[] originalRoster = new Fighter[ROSTER_SIZE];
+        Fighter[] copiedRoster = new Fighter[ROSTER_SIZE];
         Rosters rosters = Rosters.getInstance();
 
-        roster1[0] = new Fighter("Islam Makhachev", "Russia", "#c");
-        roster1[1] = new Fighter("Arman Tsarukyan", "Armenia", "#1");
-        roster1[2] = new Fighter("Charles Oliveira", "Brazil", "#2");
-        roster1[3] = new Fighter("Justin Gaethje", "USA", "#3");
-        roster1[4] = new Fighter("Max Holloway", "USA", "#4");
-        roster1[5] = new Fighter("Dustin Poirier", "Brazil", "#5");
+        originalRoster[0] = new Fighter("Islam Makhachev", "Russia", "#c");
+        originalRoster[1] = new Fighter("Arman Tsarukyan", "Armenia", "#1");
+        originalRoster[2] = new Fighter("Charles Oliveira", "Brazil", "#2");
+        originalRoster[3] = new Fighter("Justin Gaethje", "USA", "#3");
+        originalRoster[4] = new Fighter("Max Holloway", "USA", "#4");
+        originalRoster[5] = new Fighter("Dustin Poirier", "Brazil", "#5");
 
-        for (int i = 0; i < roster2.length; i++) {
-            roster2[i] = new Fighter();
+        for (int i = 0; i < copiedRoster.length; i++) {
+            copiedRoster[i] = new Fighter();
         }
 
-        for (int i = 0; i < roster2.length; i++) {
-            roster2[i].setName(roster1[i].getName());
-            roster2[i].setNationality(roster1[i].getNationality());
-            roster2[i].setRank(roster1[i].getRank());
+        for (int i = 0; i < copiedRoster.length; i++) {
+            copiedRoster[i].setName(originalRoster[i].getName());
+            copiedRoster[i].setNationality(originalRoster[i].getNationality());
+            copiedRoster[i].setRank(originalRoster[i].getRank());
         }
 
-        rosters.setRoster(roster1, roster2);
+        rosters.setRoster(originalRoster, copiedRoster);
 
         rosters.printOriginalRoster();
         rosters.printCopiedRoster();
 
         rosters.getOriginalRoster()[0] = new Fighter("Cornor McGregor", "Ireland", "#c");
-        // roster1[0] = new Fighter("Cornor McGregor", "Ireland", "#c");
+        // originalRoster[0] = new Fighter("Cornor McGregor", "Ireland", "#c");
 
         rosters.printOriginalRoster();
         rosters.printCopiedRoster();        
