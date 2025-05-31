@@ -45,8 +45,8 @@ class Fighter {
 
 class Rosters {
     private static Rosters instance = new Rosters();
-    private Fighter[] roster1;
-    private Fighter[] roster2;
+    private Fighter[] originalRoster;
+    private Fighter[] copiedRoster;
 
     private Rosters() {}
 
@@ -54,28 +54,28 @@ class Rosters {
         return instance;
     }
 
-    public void setRoster(Fighter[] roster1, Fighter[] roster2) {
-        this.roster1 = roster1;
-        this.roster2 = roster2;
+    public void setRoster(Fighter[] originalRoster, Fighter[] copiedRoster) {
+        this.originalRoster = originalRoster;
+        this.copiedRoster = copiedRoster;
     }
 
-    public Fighter[] getRoster1() {
-        return this.roster1;
+    public Fighter[] getOriginalRoster() {
+        return this.originalRoster;
     }
 
-    public Fighter[] getRoster2() {
-        return this.roster2;
+    public Fighter[] getCopiedRoster() {
+        return this.copiedRoster;
     }
 
-    public void printRoster1() {
-        for (Fighter fighter : this.roster1) {
+    public void printOriginalRoster() {
+        for (Fighter fighter : this.originalRoster) {
             System.out.println(fighter);
         }
         System.out.println("\n");
     }
 
-    public void printRoster2() {
-        for (Fighter fighter : this.roster2) {
+    public void printCopiedRoster() {
+        for (Fighter fighter : this.copiedRoster) {
             System.out.println(fighter);
         }
         System.out.println("\n");
@@ -85,36 +85,36 @@ class Rosters {
 public class FighterTest {
     public static void main(String[] args) {
         final int ROSTER_SIZE = 6;
-        Fighter[] roster1 = new Fighter[ROSTER_SIZE];
-        Fighter[] roster2 = new Fighter[ROSTER_SIZE];
+        Fighter[] originalRoster = new Fighter[ROSTER_SIZE];
+        Fighter[] copiedRoster = new Fighter[ROSTER_SIZE];
         Rosters rosters = Rosters.getInstance();
 
-        roster1[0] = new Fighter("Islam Makhachev", "Russia", "#c");
-        roster1[1] = new Fighter("Arman Tsarukyan", "Armenia", "#1");
-        roster1[2] = new Fighter("Charles Oliveira", "Brazil", "#2");
-        roster1[3] = new Fighter("Justin Gaethje", "USA", "#3");
-        roster1[4] = new Fighter("Max Holloway", "USA", "#4");
-        roster1[5] = new Fighter("Dustin Poirier", "Brazil", "#5");
+        originalRoster[0] = new Fighter("Islam Makhachev", "Russia", "#c");
+        originalRoster[1] = new Fighter("Arman Tsarukyan", "Armenia", "#1");
+        originalRoster[2] = new Fighter("Charles Oliveira", "Brazil", "#2");
+        originalRoster[3] = new Fighter("Justin Gaethje", "USA", "#3");
+        originalRoster[4] = new Fighter("Max Holloway", "USA", "#4");
+        originalRoster[5] = new Fighter("Dustin Poirier", "Brazil", "#5");
 
-        for (int i = 0; i < roster2.length; i++) {
-            roster2[i] = new Fighter();
+        for (int i = 0; i < copiedRoster.length; i++) {
+            copiedRoster[i] = new Fighter();
         }
 
-        for (int i = 0; i < roster2.length; i++) {
-            roster2[i].setName(roster1[i].getName());
-            roster2[i].setNationality(roster1[i].getNationality());
-            roster2[i].setRank(roster1[i].getRank());
+        for (int i = 0; i < copiedRoster.length; i++) {
+            copiedRoster[i].setName(originalRoster[i].getName());
+            copiedRoster[i].setNationality(originalRoster[i].getNationality());
+            copiedRoster[i].setRank(originalRoster[i].getRank());
         }
 
-        rosters.setRoster(roster1, roster2);
+        rosters.setRoster(originalRoster, copiedRoster);
 
-        rosters.printRoster1();
-        rosters.printRoster2();
+        rosters.printOriginalRoster();
+        rosters.printCopiedRoster();
 
-        rosters.getRoster1()[0] = new Fighter("Cornor McGregor", "Ireland", "#c");
-        // roster1[0] = new Fighter("Cornor McGregor", "Ireland", "#c");
+        rosters.getOriginalRoster()[0] = new Fighter("Cornor McGregor", "Ireland", "#c");
+        // originalRoster[0] = new Fighter("Cornor McGregor", "Ireland", "#c");
 
-        rosters.printRoster1();
-        rosters.printRoster2();        
+        rosters.printOriginalRoster();
+        rosters.printCopiedRoster();        
     }
 }
