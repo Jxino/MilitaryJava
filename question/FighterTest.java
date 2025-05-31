@@ -31,18 +31,6 @@ class Fighter {
         return this.rank;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setNationality(String nationality) {
-        this.nationality = nationality;
-    }
-
-    public void setRank(String rank) {
-        this.rank = rank;
-    }
-
     @Override
     public String toString() {
         return String.format("%s | %s | %s", this.name, this.nationality, this.rank);
