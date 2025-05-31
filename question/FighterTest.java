@@ -61,15 +61,8 @@ class Rosters {
         return this.copiedRoster;
     }
 
-    public void printOriginalRoster() {
-        for (Fighter fighter : this.originalRoster) {
-            System.out.println(fighter);
-        }
-        System.out.println("\n");
-    }
-
-    public void printCopiedRoster() {
-        for (Fighter fighter : this.copiedRoster) {
+    public void printRoster(Fighter[] roster) {
+        for (Fighter fighter : roster) {
             System.out.println(fighter);
         }
         System.out.println("\n");
@@ -100,13 +93,13 @@ public class FighterTest {
 
         rosters.setRoster(originalRoster, copiedRoster);
 
-        rosters.printOriginalRoster();
-        rosters.printCopiedRoster();
+        rosters.printRoster(originalRoster);
+        rosters.printRoster(copiedRoster);
 
         rosters.getOriginalRoster()[0] = new Fighter("Cornor McGregor", "Ireland", "#c");
         // originalRoster[0] = new Fighter("Cornor McGregor", "Ireland", "#c");
 
-        rosters.printOriginalRoster();
-        rosters.printCopiedRoster();        
+        rosters.printRoster(originalRoster);
+        rosters.printRoster(copiedRoster);
     }
 }
