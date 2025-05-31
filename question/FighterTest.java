@@ -11,6 +11,12 @@ class Fighter {
         this.rank = rank;
     }
 
+    public Fighter(Fighter original) {
+        this.name = original.name;
+        this.nationality = original.nationality;
+        this.rank = original.rank;
+    }
+
     public Fighter() {}
 
     public String getName() {
