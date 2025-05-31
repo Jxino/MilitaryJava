@@ -107,9 +107,7 @@ public class FighterTest {
         }
 
         for (int i = 0; i < copiedRoster.length; i++) {
-            copiedRoster[i].setName(originalRoster[i].getName());
-            copiedRoster[i].setNationality(originalRoster[i].getNationality());
-            copiedRoster[i].setRank(originalRoster[i].getRank());
+            copiedRoster[i] = new Fighter(originalRoster[i]);
         }
 
         rosters.setRoster(originalRoster, copiedRoster);
