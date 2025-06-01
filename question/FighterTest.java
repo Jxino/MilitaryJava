@@ -63,7 +63,7 @@ class Rosters {
         for (Fighter fighter : roster) {
             System.out.println(fighter);
         }
-        System.out.println("\n");
+        System.out.println();
     }
 }
 
