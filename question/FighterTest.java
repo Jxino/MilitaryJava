@@ -83,9 +83,6 @@ public class FighterTest {
         originalRoster[4] = new Fighter("Max Holloway", "USA", "#4");
         originalRoster[5] = new Fighter("Dustin Poirier", "Brazil", "#5");
 
-        for (int i = 0; i < copiedRoster.length; i++) {
-            copiedRoster[i] = new Fighter();
-        }
 
         for (int i = 0; i < copiedRoster.length; i++) {
             copiedRoster[i] = new Fighter(originalRoster[i]);
