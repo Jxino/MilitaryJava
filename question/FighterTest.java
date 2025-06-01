@@ -42,7 +42,7 @@ class Rosters {
 
     private Rosters() {}
 
-    static public Rosters getInstance() {
+    public static Rosters getInstance() {
         return instance;
     }
 
