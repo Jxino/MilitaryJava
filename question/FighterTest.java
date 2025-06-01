@@ -17,7 +17,6 @@ class Fighter {
         this.rank = original.rank;
     }
 
-
     public String getName() {
         return this.name;
     }
@@ -81,7 +80,6 @@ public class FighterTest {
         originalRoster[3] = new Fighter("Justin Gaethje", "USA", "#3");
         originalRoster[4] = new Fighter("Max Holloway", "USA", "#4");
         originalRoster[5] = new Fighter("Dustin Poirier", "Brazil", "#5");
-
 
         for (int i = 0; i < copiedRoster.length; i++) {
             copiedRoster[i] = new Fighter(originalRoster[i]);
