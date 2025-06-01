@@ -90,7 +90,7 @@ public class FighterTest {
         rosters.printRoster(originalRoster);
         rosters.printRoster(copiedRoster);
 
-        rosters.getOriginalRoster()[0] = new Fighter("Cornor McGregor", "Ireland", "#c");
+        rosters.getOriginalRoster()[0] = new Fighter("Conor McGregor", "Ireland", "#c");
         // originalRoster[0] = new Fighter("Cornor McGregor", "Ireland", "#c");
 
         rosters.printRoster(originalRoster);
