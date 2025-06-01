@@ -17,7 +17,6 @@ class Fighter {
         this.rank = original.rank;
     }
 
-    public Fighter() {}
 
     public String getName() {
         return this.name;
