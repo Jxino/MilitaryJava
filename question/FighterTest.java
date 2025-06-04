@@ -1,11 +1,29 @@
 package question;
 
+enum Nationality {
+    RUSSIA("Russia"),
+    ARMENIA("Armenia"),
+    BRAZIL("Brazil"),
+    USA("USA"),
+    IRELAND("Ireland");
+
+    private final String nation;
+
+    Nationality(String nation) {
+        this.nation = nation;
+    }
+
+    public String toString() {
+        return nation;
+    }
+}
+
 class Fighter {
     private String name;
-    private String nationality;
+    private Nationality nationality;
     private String rank;
 
-    public Fighter(String name, String nationality, String rank) {
+    public Fighter(String name, Nationality nationality, String rank) {
         this.name = name;
         this.nationality = nationality;
         this.rank = rank;
@@ -21,7 +39,7 @@ class Fighter {
         return this.name;
     }
 
-    public String getNationality() {
+    public Nationality getNationality() {
         return this.nationality;
     }
 
@@ -74,12 +92,12 @@ public class FighterTest {
         Fighter[] copiedRoster = new Fighter[ROSTER_SIZE];
         Rosters rosters = Rosters.getInstance();
 
-        originalRoster[0] = new Fighter("Islam Makhachev", "Russia", "#c");
-        originalRoster[1] = new Fighter("Arman Tsarukyan", "Armenia", "#1");
-        originalRoster[2] = new Fighter("Charles Oliveira", "Brazil", "#2");
-        originalRoster[3] = new Fighter("Justin Gaethje", "USA", "#3");
-        originalRoster[4] = new Fighter("Max Holloway", "USA", "#4");
-        originalRoster[5] = new Fighter("Dustin Poirier", "USA", "#5");
+        originalRoster[0] = new Fighter("Islam Makhachev", Nationality.RUSSIA, "#c");
+        originalRoster[1] = new Fighter("Arman Tsarukyan", Nationality.ARMENIA, "#1");
+        originalRoster[2] = new Fighter("Charles Oliveira", Nationality.BRAZIL, "#2");
+        originalRoster[3] = new Fighter("Justin Gaethje", Nationality.USA, "#3");
+        originalRoster[4] = new Fighter("Max Holloway", Nationality.USA, "#4");
+        originalRoster[5] = new Fighter("Dustin Poirier", Nationality.USA, "#5");
 
         for (int i = 0; i < copiedRoster.length; i++) {
             copiedRoster[i] = new Fighter(originalRoster[i]);
@@ -90,7 +108,7 @@ public class FighterTest {
         rosters.printRoster(originalRoster);
         rosters.printRoster(copiedRoster);
 
-        rosters.getOriginalRoster()[0] = new Fighter("Conor McGregor", "Ireland", "#c");
+        rosters.getOriginalRoster()[0] = new Fighter("Conor McGregor", Nationality.IRELAND, "#c");
         // originalRoster[0] = new Fighter("Cornor McGregor", "Ireland", "#c");
 
         rosters.printRoster(originalRoster);
