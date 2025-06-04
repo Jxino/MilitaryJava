@@ -13,6 +13,7 @@ enum Nationality {
         this.nation = nation;
     }
 
+    @Override
     public String toString() {
         return nation;
     }
