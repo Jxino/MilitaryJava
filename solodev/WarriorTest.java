@@ -35,42 +35,51 @@ abstract class Ranking {
 }
 
 class UnRanker extends Ranking {
+    @Override
     public void matchMake() {
         System.out.println("Fight with a top 15 contender");
     }
 
+    @Override
     public void win() {
         System.out.println("Win by split decision");
     }
 
+    @Override
     public void callOut() {
         System.out.println("\"I will smash you, Colby\"");
     }
 }
 
 class TopRanker extends Ranking {
+    @Override
     public void matchMake() {
         System.out.println("Fight with a top 5 contender");
     }
 
+    @Override
     public void win() {
         System.out.println("Win by 3 round TKO");
     }
 
+    @Override
     public void callOut() {
         System.out.println("\"I want Kamaru Usman\"");
     }
 }
 
 class Champion extends Ranking {
+    @Override
     public void matchMake() {
         System.out.println("Fight with a interim champion");
     }
 
+    @Override
     public void win() {
         System.out.println("Win by 2 round KO");
     }
 
+    @Override
     public void callOut() {
         System.out.println("\"I will defend my welterweight title at least for 5 times, and challenge to be a double champ\"");
     }
