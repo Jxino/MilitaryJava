@@ -22,9 +22,9 @@ class Warrior {
 }
 
 abstract class Ranking {
-    abstract void matchMake();
-    abstract void win();
-    abstract void callOut();
+    public abstract void matchMake();
+    public abstract void win();
+    public abstract void callOut();
 
     final public void fight() {
         matchMake();
