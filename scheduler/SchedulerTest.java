@@ -16,10 +16,10 @@ public class SchedulerTest {
                 scheduler = new RoundRobin();
                 break;
             case "L":
-                scheduler = new RoundRobin();
+                scheduler = new LeastJob();
                 break;
             case "P":
-                scheduler = new RoundRobin();
+                scheduler = new PriorityAllocation();
                 break;
             default:
                 System.out.println("지원되지 않는 기능입니다.");
