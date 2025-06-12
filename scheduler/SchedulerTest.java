@@ -1,6 +1,6 @@
 package scheduler;
 
-import java.io.IOException;;
+import java.io.IOException;
 
 public class SchedulerTest {
     public static void main(String[] args) throws IOException {
