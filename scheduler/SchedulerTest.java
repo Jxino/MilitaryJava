@@ -26,8 +26,10 @@ public class SchedulerTest {
                 break;
         }
 
-        scheduler.getNextCall();
-        scheduler.sendCallToAgent();
+        if (scheduler != null) {
+            scheduler.getNextCall();
+            scheduler.sendCallToAgent();
+        }
 
         scanner.close();
     }
