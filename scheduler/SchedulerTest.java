@@ -17,6 +17,7 @@ public class SchedulerTest {
                 break;
             case "L":
                 scheduler = new LeastJob();
+
                 break;
             case "P":
                 scheduler = new PriorityAllocation();
